@@ -125,16 +125,27 @@ export default class HEPPOKO_FRONTEND {
                 }
             },
             windowResized: () => {
+                if (
+                    this.isPCWidth ||
+                    btn.getAttribute(`aria-expanded`) === `false`
+                ) {
+                    btn.classList.remove(`is-open`);
+                    btn.setAttribute(`aria-expanded`, `false`);
+                }
+
                 if (this.isPCWidth) {
                     globalNavList!.hidden = false;
                     globalNavList!.style!.removeProperty(`height`);
+                    btn.classList.remove(`is-open`);
                     btn.setAttribute(`aria-expanded`, `false`);
 
                     return;
                 }
 
-                globalNavList!.hidden = true;
-                globalNavList!.style!.height = `0`;
+                if (btn.getAttribute(`aria-expanded`) === `false`) {
+                    globalNavList!.hidden = true;
+                    globalNavList!.style!.height = `0`;
+                }
             }
         };
 
