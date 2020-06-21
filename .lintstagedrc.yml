@@ -1,0 +1,9 @@
+'*.md':
+  - textlint
+  - git add
+'*.scss':
+  - stylelint
+  - git add
+'*.ts':
+  - eslint --quiet --jsx
+  - git add

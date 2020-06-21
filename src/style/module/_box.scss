@@ -1,0 +1,37 @@
+
+/* =============================================================================
+ * .mod-box-bio
+ * ========================================================================== */
+.mod-box-bio {
+  @include min-screen() {
+    padding: 40px;
+
+    &__details {
+      font-size: 14px;
+    }
+  }
+
+  padding: 20px;
+  margin: 3em 0 4em;
+  border: 1px solid;
+  border-radius: 14px;
+
+  &__img {
+    display: block;
+  }
+
+  &__visual,
+  &__details {
+    padding: 0 0 0 10px;
+  }
+
+  &__details {
+    font-size: 11px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 -10px;
+  }
+}

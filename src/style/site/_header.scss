@@ -1,0 +1,204 @@
+%sitename {
+  padding-top: 2px;
+}
+
+%inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin toggleMode {
+  &__toggleMode {
+    &Txt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    &Label {
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+      }
+
+      &::before {
+        top: -2px;
+        left: -1px;
+        z-index: 2;
+        width: 26px;
+        height: 26px;
+        content: "";
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 50%;
+        transition: .2s transform ease-out;
+      }
+
+      &::after {
+        top: 0;
+        right: 1px;
+        z-index: 1;
+        font-size: 15px;
+        content: "💡";
+      }
+
+      position: relative;
+      display: block;
+      width: 48px;
+      height: 24px;
+      background: #333;
+      border: 1px solid #000;
+      border-radius: 24px;
+    }
+
+    &Input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+
+      &:checked + .site-header-top__toggleModeLabel::before,
+      &:checked + .site-header__toggleModeLabel::before {
+        transform: translateX(22px);
+      }
+    }
+
+    &Inner {
+      position: relative;
+      display: block;
+      padding: 10px $CONTENT_PADDING 10px 10px;
+      overflow: hidden;
+    }
+  }
+}
+
+/* =============================================================================
+ * .site-header
+ * ========================================================================== */
+.site-header {
+  @include toggleMode;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0 0 0 $CONTENT_PADDING;
+  background: #feec00;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+  transition: .2s background-color ease-out;
+
+  &__logo {
+    display: block;
+    width: 160px;
+  }
+
+  &__sitename {
+    @extend %sitename;
+  }
+
+  &__toggleMode {
+    display: flex;
+    justify-content: flex-end;
+
+    &Inner {
+      right: -15px;
+    }
+  }
+
+  &__inner {
+    @extend %str-inner;
+    @extend %inner;
+  }
+
+  [data-is-dark-mode="true"] & {
+    color: #333;
+    background-color: #e6db74;
+  }
+}
+
+/* =============================================================================
+ * .site-header-top
+ * ========================================================================== */
+.site-header-top {
+  @include toggleMode;
+
+  display: contents;
+
+  &__logo {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  &__link {
+    display: block;
+    max-width: 400px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__sitename {
+    @extend %sitename;
+  }
+
+  &__toggleMode {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__primary,
+  &__secondary {
+    position: sticky;
+    top: 0;
+  }
+
+  &__primary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 33px $CONTENT_PADDING 0;
+    background: #feec00;
+    transition: .2s background-color ease-out;
+
+    @media screen and (max-height: 660px) and (orientation: landscape) {
+      position: static;
+    }
+
+    [data-is-dark-mode="true"] & {
+      color: #333;
+      background-color: #e6db74;
+    }
+  }
+
+  &__secondary {
+    @extend %inner;
+    z-index: 2;
+    padding: 0 0 0 $CONTENT_PADDING;
+    background: #feec00;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .2);
+    transition: .2s background-color ease-out;
+
+    .site-header-top__logo {
+      width: 160px;
+      cursor: pointer;
+    }
+
+    [data-is-dark-mode="true"] & {
+      color: #333;
+      background-color: #e6db74;
+    }
+  }
+}

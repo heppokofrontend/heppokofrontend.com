@@ -1,0 +1,18 @@
+/* =============================================================================
+ * .site-footer
+ * ========================================================================== */
+.site-footer {
+  position: relative;
+  padding: 30px $CONTENT_PADDING;
+  text-align: right;
+  background: #feec00;
+
+  &__inner {
+    @extend %str-inner;
+  }
+
+  [data-is-dark-mode="true"] & {
+    color: #333;
+    background-color: #e6db74;
+  }
+}
