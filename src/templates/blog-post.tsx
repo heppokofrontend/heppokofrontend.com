@@ -142,11 +142,11 @@ export const pageQuery = graphql`
                 )
                 description
                 hero {
-                childImageSharp {
-                    fluid(maxWidth: 1280) {
-                    ...GatsbyImageSharpFluid
+                    childImageSharp {
+                        fluid(maxWidth: 1280) {
+                        ...GatsbyImageSharpFluid
+                        }
                     }
-                }
                 }
             }
             tableOfContents

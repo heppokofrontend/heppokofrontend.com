@@ -1,6 +1,5 @@
 import React, { ChangeEvent } from 'react';
 
-const html = document.documentElement;
 const savedata = (() => {
     try {
         return JSON.parse(
@@ -14,17 +13,7 @@ const savedata = (() => {
         };
     }
 })();
-const onchange = function (e: ChangeEvent) {
-    savedata.checked = (e.target as HTMLInputElement).checked;
-    html.dataset.isDarkMode = savedata.checked;
 
-    try {
-        localStorage.setItem(
-            `toggle-mode-state`,
-            JSON.stringify(savedata)
-        );
-    } catch {}
-};
 const ToggleMode = ({isTop}: {
     isTop?: boolean
 }) => {
@@ -37,7 +26,6 @@ const ToggleMode = ({isTop}: {
                     type="checkbox"
                     id="js-toggle-mode"
                     className={`${className}toggleModeInput`}
-                    onChange={onchange}
                     defaultChecked={savedata.checked}
                 />
                 <span className={`${className}toggleModeLabel`}>
@@ -49,8 +37,5 @@ const ToggleMode = ({isTop}: {
         </div>
     );
 };
-
-
-html.dataset.isDarkMode = savedata.checked;
 
 export default ToggleMode;

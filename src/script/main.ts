@@ -1,8 +1,43 @@
 const mediaQueryList = window.matchMedia(`(min-width: 768px)`);
+const html = document.documentElement;
 
 export default class HEPPOKO_FRONTEND {
     get isPCWidth() {
         return mediaQueryList.matches;
+    }
+
+    private toggleMode() {
+        const target = document.getElementById('js-toggle-mode');
+        const savedata = (() => {
+            try {
+                return JSON.parse(
+                    localStorage.getItem(`toggle-mode-state`) || `{
+                        "checked": false
+                    }`
+                );
+            } catch {
+                return {
+                    checked: false
+                };
+            }
+        })();
+        const onchange = function (e: Event) {
+            savedata.checked = (e.target as HTMLInputElement).checked;
+            html.dataset.isDarkMode = savedata.checked;
+
+            try {
+                localStorage.setItem(
+                    `toggle-mode-state`,
+                    JSON.stringify(savedata)
+                );
+            } catch {}
+        };
+
+        html.dataset.isDarkMode = savedata.checked;
+
+        if (target) {
+            target.addEventListener(`change`, onchange);
+        }
     }
 
     private navGlobal() {
@@ -20,7 +55,7 @@ export default class HEPPOKO_FRONTEND {
             return elm;
         })();
         const reflow = () => globalNavList?.clientHeight;
-        const links = globalNavList?.querySelectorAll(`a`);
+        const links = globalNavList ? globalNavList.querySelectorAll(`a`) : [];
         const handler = {
             click: () => {
                 if (this.isPCWidth) {
@@ -126,6 +161,7 @@ export default class HEPPOKO_FRONTEND {
             });
         }
 
+        this.toggleMode();
         this.navGlobal();
     }
 }

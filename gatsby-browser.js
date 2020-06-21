@@ -9,5 +9,5 @@ import './src/script/init.ts';
 import Main from './src/script/main.ts';
 
 export const onRouteUpdate = () => {
-    new Main()
-}
+    new Main();
+};
