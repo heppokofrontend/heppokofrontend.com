@@ -101,18 +101,20 @@ const siteHeader = ({location, title}: Prop) => {
             </div>
 
             <div className="site-header-top__secondary">
-                <h1 className="site-header-top__sitename">
-                    <Link className="site-header-top__link" to={`/`}>
-                        <img
-                            src="/asset/image/site/header-img.png"
-                            className="site-header-top__logo"
-                            alt={title}
-                        />
-                    </Link>
-                </h1>
+                <div className="site-header__inner">
+                    <h1 className="site-header-top__sitename">
+                        <Link className="site-header-top__link" to={`/`}>
+                            <img
+                                src="/asset/image/site/header-img.png"
+                                className="site-header-top__logo"
+                                alt={title}
+                            />
+                        </Link>
+                    </h1>
 
-                <div className="site-header-top__navigation">
-                    <GlobalNav isTop={isTop} />
+                    <div className="site-header-top__navigation">
+                        <GlobalNav isTop={isTop} />
+                    </div>
                 </div>
             </div>
         </header>

@@ -112,8 +112,12 @@
     }
   }
 
-  &__secondary {
+  &__inner {
     @extend %inner;
+    @extend %str-inner;
+  }
+
+  &__secondary {
     z-index: 2;
     padding: 0 0 0 $CONTENT_PADDING;
     background: #feec00;
