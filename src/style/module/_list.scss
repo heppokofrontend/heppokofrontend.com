@@ -1,4 +1,33 @@
 /* =============================================================================
+ * .mod-list
+ * ========================================================================== */
+.mod-list {
+  &__txt {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1.25em;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: .5em;
+      height: .5em;
+      margin: auto 0;
+      content: "";
+      background: #000;
+      transition: .2s background-color ease-out;
+
+      [data-is-dark-mode="true"] & {
+        background: #ccc;
+      }
+    }
+  }
+}
+
+/* =============================================================================
  * .mod-list-profile
  * ========================================================================== */
 .mod-list-profile {

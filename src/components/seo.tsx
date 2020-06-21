@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from "gatsby"
 
+const root = `https://heppokofrontend.dev`;
 const SEO = ({ description, lang, meta, title, image }: {
     [key: string]: string
 }) => {
@@ -53,7 +54,7 @@ const SEO = ({ description, lang, meta, title, image }: {
                 },
                 {
                     property: `og:image`,
-                    content: image,
+                    content: `${root}${image || `/asset/image/ogp.png`}`,
                 },
                 {
                     property: `og:type`,

@@ -1,5 +1,15 @@
 [class^="mod-"] {
   line-height: 2;
+
+  strong {
+    color: #c10000;
+  }
+
+  [data-is-dark-mode="true"] & {
+    strong {
+      color: #ff447f;
+    }
+  }
 }
 
 @import "./txt";

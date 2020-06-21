@@ -2,12 +2,43 @@
  * .site-footer
  * ========================================================================== */
 .site-footer {
+  @include min-screen() {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    &__copyright {
+      margin-top: 0;
+    }
+
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
   position: relative;
   z-index: 2;
-  padding: 30px $CONTENT_PADDING;
-  text-align: right;
+  padding: 20px $CONTENT_PADDING;
+  text-align: center;
   background: #feec00;
   transition: .2s color ease-out;
+
+  a {
+    color: #006497;
+    text-decoration: none;
+  }
+
+  &__copyright {
+    margin: 10px 0 0;
+  }
 
   &__inner {
     @extend %str-inner;

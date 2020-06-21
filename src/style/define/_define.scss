@@ -18,6 +18,16 @@ $BREAK_POINT: 768px;
   overflow: hidden;
 }
 
+%margin-reset {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
 @mixin min-screen($minWidth: $BREAK_POINT) {
   @media screen and (min-width: $minWidth) {
     @content;
