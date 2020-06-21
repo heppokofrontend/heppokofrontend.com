@@ -37,17 +37,9 @@
   margin: 60px auto;
 
   &__title {
-    padding: 2px 0 1px 10px;
+    padding: 2px 10px 1px;
     font-size: 18px;
     background: #feec00;
-
-    &::before {
-      content: "【";
-    }
-
-    &::after {
-      content: "】";
-    }
 
     [data-dark-mode="true"] & {
       color: #333;
