@@ -4,9 +4,8 @@ import ToggleMode from './toogle-mode';
 const list = [
     [`about`, `このWebサイトについて`],
     [`profile`, `著者について`],
-    [`link`, `リンク集`],
-    [`license`, `ライセンス`],
-]
+    [`links`, `リンク集`],
+];
 const callback = ([path, label]: string[]) => (
     <li className="nav-global__item" key={label}>
         <a href={`/${path}/`} className="nav-global__link">

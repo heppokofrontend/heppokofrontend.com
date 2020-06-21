@@ -23,12 +23,12 @@
     &__link {
       display: flex;
       flex-direction: column-reverse;
-      padding: 0 0 0 22px;
+      padding: 0 5px 0 27px;
       color: inherit !important; // stylelint-disable-line
       border-bottom: 0;
 
       &::before {
-        left: 0;
+        left: 5px;
       }
 
       &:focus,
@@ -40,13 +40,13 @@
     }
 
     &__item {
-      padding: 10px 0 0 20px;
+      padding: 0 0 0 20px;
     }
 
     &__list {
       display: flex;
       align-items: center;
-      margin: 0 0 20px -20px;
+      margin: 2px 0 13px -20px;
     }
 
     &__dropdown {

@@ -3157,11 +3157,6 @@ export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_5_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_6_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
 export type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
