@@ -9,7 +9,7 @@
   min-height: 50vh;
   overflow: hidden;
   background: #fff;
-  transition: .2s background-color ease-out;
+  transform: translateZ(0);
 
   [data-dark-mode="true"] & {
     background: #272822;
