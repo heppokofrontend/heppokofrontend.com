@@ -7,7 +7,7 @@ export default class HEPPOKO_FRONTEND {
     }
 
     private toggleMode() {
-        const target = document.getElementById('js-toggle-mode');
+        const target = document.getElementById(`js-toggle-mode`);
         const savedata = (() => {
             try {
                 return JSON.parse(

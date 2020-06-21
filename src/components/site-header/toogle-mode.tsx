@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 const savedata = (() => {
     try {
@@ -17,7 +17,7 @@ const savedata = (() => {
 const ToggleMode = ({isTop}: {
     isTop?: boolean
 }) => {
-    const className = isTop ? `site-header-top__` :  `site-header__`;
+    const className = isTop ? `site-header-top__` :  `nav-global__`;
 
     return (
         <div className={`${className}toggleMode`}>
