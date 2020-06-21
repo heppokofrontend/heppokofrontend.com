@@ -3,9 +3,11 @@
  * ========================================================================== */
 .site-footer {
   position: relative;
+  z-index: 2;
   padding: 30px $CONTENT_PADDING;
   text-align: right;
   background: #feec00;
+  transition: .2s color ease-out;
 
   &__inner {
     @extend %str-inner;

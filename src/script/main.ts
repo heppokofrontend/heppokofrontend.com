@@ -113,6 +113,17 @@ export default class HEPPOKO_FRONTEND {
                     }
                 }
             },
+            stopPropagation(e: Event) {
+                e.stopPropagation();
+            },
+            closeClick: () => {
+                if (
+                    !this.isPCWidth &&
+                    btn.getAttribute(`aria-expanded`) === `true`
+                ) {
+                    btn.click();
+                }
+            },
             windowResized: () => {
                 if (this.isPCWidth) {
                     globalNavList!.hidden = false;
@@ -133,9 +144,12 @@ export default class HEPPOKO_FRONTEND {
 
         globalNavList.before(btn);
         btn.addEventListener(`click`, handler.click);
+        btn.addEventListener(`click`, handler.stopPropagation);
         btn.addEventListener(`keydown`, handler.keydown.prev);
         links[links.length - 1]?.addEventListener(`keydown`, handler.keydown.next);
         globalNavList.addEventListener(`transitionend`, handler.transitionend);
+        globalNavList.addEventListener(`click`, handler.stopPropagation);
+        window.addEventListener(`click`, handler.closeClick);
         window.addEventListener(`windowresized`, handler.windowResized);
         handler.windowResized();
     }

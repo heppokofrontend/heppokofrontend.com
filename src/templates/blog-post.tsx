@@ -52,13 +52,13 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
             <SEO
                 title={`${post.frontmatter.title} `}
                 description={post.frontmatter.description || post.excerpt}
+                image={src.src}
             />
             <div className="str-outer">
                 <article className="str-article">
                     <header className="str-article__header">
                         <h1 className="str-article__title">{post.frontmatter.title}</h1>
                         <p className="str-article__date">{post.frontmatter.date}</p>
-                        <Tags tags={post.frontmatter.tags} />
                         {
                             src ? (
                                 <div className="str-article__visual">
@@ -70,6 +70,7 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
                                 </div>
                             ) : null
                         }
+                        <Tags tags={post.frontmatter.tags} />
                         {
                             toc ? (
                                 <div
@@ -141,6 +142,7 @@ export const pageQuery = graphql`
                     locale: "ja-JP"
                 )
                 description
+                tags
                 hero {
                     childImageSharp {
                         fluid(maxWidth: 1280) {

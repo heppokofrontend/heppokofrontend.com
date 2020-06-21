@@ -65,7 +65,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
             <SEO title="" />
             <div className="str-outer">
                 <div className="str-inner">
-                    <h2 className="mod-hdg-l2">
+                    <h2 className="mod-hdg-l2 align-center">
                         <span className="mod-hdg-l2__inner">雑記一覧</span>
                     </h2>
 

@@ -3,6 +3,18 @@
  * .mod-hdg-l2
  * ========================================================================== */
 .mod-hdg-l2 {
+  @include min-screen() {
+    margin-top: 60px;
+
+    &:not(:first-child) {
+      margin-top: 100px;
+    }
+  }
+
   margin: 40px 0 20px;
-  text-align: center;
+  font-size: 32px;
+
+  &:not(:first-child) {
+    margin-top: 80px;
+  }
 }

@@ -35,7 +35,6 @@ module.exports = {
         ],
         'linebreak-style': [`error`, `unix`],
         'no-unused-expressions': `off`,
-        'function-paren-newline': `off`,
         'no-new': `off`,
         'generator-star-spacing': [
             "error",
@@ -46,7 +45,10 @@ module.exports = {
         ],
 
         // ts
-        'no-explicit-any': `off`
+        'no-explicit-any': `off`,
+
+        // tsx
+        'jsx-a11y/accessible-emoji': `off`
     },
 
     // react

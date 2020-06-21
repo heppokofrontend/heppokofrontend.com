@@ -29,6 +29,14 @@
   &__inner {
     @extend %str-inner;
     @extend %inner;
+
+    html:not([data-script="enabled"]) & {
+      @include min-screen() {
+        display: flex;
+      }
+
+      display: block;
+    }
   }
 
   [data-is-dark-mode="true"] & {

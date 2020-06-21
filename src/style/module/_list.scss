@@ -1,0 +1,33 @@
+/* =============================================================================
+ * .mod-list-profile
+ * ========================================================================== */
+.mod-list-profile {
+  width: 80%;
+  min-width: 290px;
+  max-width: 640px;
+  margin: 60px auto;
+
+  &__title {
+    padding: 2px 0 1px 10px;
+    font-size: 18px;
+    background: #feec00;
+
+    &::before {
+      content: "【";
+    }
+
+    &::after {
+      content: "】";
+    }
+
+    [data-is-dark-mode="true"] & {
+      color: #333;
+      background: #e6db74;
+    }
+  }
+
+  &__data {
+    padding: .8em 0;
+    white-space: pre-wrap;
+  }
+}

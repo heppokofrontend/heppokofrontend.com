@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-[data-using-keyboard="false"] :focus {
+html:not([data-using-keyboard="true"]) :focus {
   outline: 0;
 }
 

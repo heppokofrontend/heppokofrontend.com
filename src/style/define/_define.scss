@@ -2,7 +2,7 @@
  * defines
  * ========================================================================== */
 $CONTENT_PADDING: 15px;
-$CONTENT_MAX_WIDTH: 1280px;
+$CONTENT_MAX_WIDTH: 1100px;
 $BREAK_POINT: 768px;
 
 %str-inner {
@@ -26,6 +26,10 @@ $BREAK_POINT: 768px;
 
 @mixin toggleMode {
   &__toggleMode {
+    html:not([data-script="enabled"]) & {
+      visibility: hidden;
+    }
+
     &Txt {
       position: absolute;
       top: 0;
