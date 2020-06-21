@@ -3,6 +3,7 @@ import { Link, graphql, PageProps } from 'gatsby'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Image from 'gatsby-image';
 
 interface Prop extends PageProps<Data>{
     data: any
@@ -44,6 +45,7 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
 
         return `<h2 class="str-article__tocHdg">TOC</h2>${src}`;
     };
+    const src = data?.markdownRemark?.frontmatter?.hero?.childImageSharp?.fluid;
 
     return (
         <Layout location={location} title={siteTitle}>
@@ -57,19 +59,27 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
                         <h1 className="str-article__title">{post.frontmatter.title}</h1>
                         <p className="str-article__date">{post.frontmatter.date}</p>
                         <Tags tags={post.frontmatter.tags} />
-                        <div className="str-article__visual">
-                            <img
-                                src="https://dummyimage.com/290x163/ccc/fff"
-                                alt=""
-                                className="str-article__img"
-                            />
-                        </div>
-                        <div
-                            className="str-article__toc"
-                            dangerouslySetInnerHTML={{
-                                __html: addClassNameToc(toc)
-                            }}
-                        />
+                        {
+                            src ? (
+                                <div className="str-article__visual">
+                                    <Image
+                                        fluid={src}
+                                        alt=""
+                                        className="str-article__img"
+                                    />
+                                </div>
+                            ) : null
+                        }
+                        {
+                            toc ? (
+                                <div
+                                    className="str-article__toc"
+                                    dangerouslySetInnerHTML={{
+                                        __html: addClassNameToc(toc)
+                                    }}
+                                />
+                            ): null
+                        }
                     </header>
                     <section
                         className="str-article__content"
@@ -131,7 +141,13 @@ export const pageQuery = graphql`
                     locale: "ja-JP"
                 )
                 description
-                tags
+                hero {
+                childImageSharp {
+                    fluid(maxWidth: 1280) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+                }
             }
             tableOfContents
         }

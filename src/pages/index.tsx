@@ -1,7 +1,7 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-
+import Image from 'gatsby-image';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -11,6 +11,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     const callback = ({ node }: any) => {
         const title = node.frontmatter.title || node.fields.slug;
         const tags = node.frontmatter.tags || [];
+        const src = node.frontmatter?.hero?.childImageSharp.fluid;
 
         return (
             <div className="mod-link-articles__item" key={node.fields.slug}>
@@ -23,6 +24,19 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
                             __html: node.frontmatter.description || node.excerpt,
                         }}
                     />
+
+                    {
+                        src ? (
+                            <div className="mod-link-articles__visual">
+                                <Image
+                                    fluid={src}
+                                    alt=""
+                                    className="mod-link-articles__img"
+                                />
+                            </div>
+                        ) : null
+                    }
+
                     {
                         0 < tags.length ? (
                             <div className="mod-link-articles__tag">
@@ -90,6 +104,13 @@ export const pageQuery = graphql`
                         title
                         description
                         tags
+                        hero {
+                            childImageSharp {
+                                fluid(maxWidth: 1280) {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
                     }
                 }
             }
