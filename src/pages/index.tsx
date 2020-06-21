@@ -10,6 +10,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     const posts = data.allMarkdownRemark.edges
     const callback = ({ node }: any) => {
         const title = node.frontmatter.title || node.fields.slug;
+        const tags = node.frontmatter.tags || [];
 
         return (
             <div className="mod-link-articles__item" key={node.fields.slug}>
@@ -22,6 +23,24 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
                             __html: node.frontmatter.description || node.excerpt,
                         }}
                     />
+                    {
+                        0 < tags.length ? (
+                            <div className="mod-link-articles__tag">
+                                <ul className="mod-link-articles__tagList">
+                                    {(tags as string[]).map(tag => (
+                                        <li
+                                            className="mod-link-articles__tagItem"
+                                            key={tag}
+                                        >
+                                            <span className="mod-link-articles__tagTxt">
+                                                {tag}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : ``
+                    }
                 </Link>
             </div>
         )
@@ -70,6 +89,7 @@ export const pageQuery = graphql`
                         )
                         title
                         description
+                        tags
                     }
                 }
             }

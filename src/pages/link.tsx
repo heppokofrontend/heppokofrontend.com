@@ -13,11 +13,12 @@ interface Prop {
 const Page = ({ data, location }: Prop) => {
     const siteTitle = data.site.siteMetadata.title
     const title = `リンク集`;
+    const subTitle = location.pathname.replace(/\//g, ``);
 
     return (
         <Layout location={location} title={siteTitle}>
-            <SEO title={title} />
-            <StrPageTitle title={title} />
+            <SEO title={`${title} - ${subTitle}`} />
+            <StrPageTitle title={title} subTitle={subTitle} />
             <div className="str-outer">
                 <div className="str-inner">
                     <div className="mod-txt">

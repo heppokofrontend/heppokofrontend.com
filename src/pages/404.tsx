@@ -15,8 +15,8 @@ const NotFoundPage = ({ data, location }: Prop) => {
 
     return (
         <Layout location={location} title={siteTitle}>
-            <SEO title="404: Not Found" />
-            <StrPageTitle title="Not Found" />
+            <SEO title="ページが見つかりません - 404 Not Found" />
+            <StrPageTitle title="ページが見つかりません" subTitle="404 Not Found" />
             <div className="str-outer">
                 <div className="str-inner">
                     <div className="mod-txt">

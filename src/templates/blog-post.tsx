@@ -15,6 +15,7 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
     const post = data.markdownRemark
     const siteTitle = data.site.siteMetadata.title
     const { previous, next } = pageContext
+    const toc = data.markdownRemark.tableOfContents;
     const Tags = ({tags}: {
         tags: string[]
     }) => tags ? (
@@ -31,12 +32,23 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
                 }
             </ul>
         </div>
-    ) : ``;
+    ) : null;
+    const addClassNameToc = (_src: string) => {
+        let src = _src;
+
+        src = src.replace(/<ul/g, `<ul class="str-article__tocList"`);
+        src = src.replace(/<li/g, `<li class="str-article__tocItem"`);
+        src = src.replace(/<p>/g, `<span>`);
+        src = src.replace(/<\/p>/g, `</span>`);
+        src = src.replace(/<a/g, `<a class="str-article__tocLink"`);
+
+        return `<h2 class="str-article__tocHdg">TOC</h2>${src}`;
+    };
 
     return (
         <Layout location={location} title={siteTitle}>
             <SEO
-                title={post.frontmatter.title}
+                title={`${post.frontmatter.title} `}
                 description={post.frontmatter.description || post.excerpt}
             />
             <div className="str-outer">
@@ -52,6 +64,12 @@ const BlogPostTemplate = ({ data, pageContext, location }: Prop) => {
                                 className="str-article__img"
                             />
                         </div>
+                        <div
+                            className="str-article__toc"
+                            dangerouslySetInnerHTML={{
+                                __html: addClassNameToc(toc)
+                            }}
+                        />
                     </header>
                     <section
                         className="str-article__content"
@@ -115,6 +133,7 @@ export const pageQuery = graphql`
                 description
                 tags
             }
+            tableOfContents
         }
     }
 `

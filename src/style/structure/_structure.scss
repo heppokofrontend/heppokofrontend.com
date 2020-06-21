@@ -15,6 +15,17 @@
   margin: 0 0 30px;
   font-size: 18px;
 
+  &__main,
+  &__sub {
+    display: block;
+    text-align: center;
+  }
+
+  &__sub {
+    font-size: 50%;
+    font-weight: normal;
+  }
+
   &__inner {
     @extend %str-inner;
 
@@ -177,6 +188,52 @@
     height: auto;
   }
 
+  &__toc {
+    position: relative;
+    max-width: 290px;
+    max-height: 70vh;
+    padding: 25px 10px 10px 0;
+    margin: 1em 0;
+    overflow: auto;
+    border: 1px solid #000;
+    border-radius: 3px;
+    transition: .2s color ease-out, .2s background-color ease-out;
+
+    [data-is-dark-mode="true"] & {
+      color: #333;
+      background: #ccc;
+    }
+
+    &Hdg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1px 10px;
+      font-size: 10PX;
+      color: #fff;
+      background: #000;
+    }
+
+    &Link {
+      [data-is-dark-mode="true"] & {
+        color: inherit;
+      }
+    }
+
+    &Item {
+      counter-increment: toc;
+
+      &::before {
+        content: counter(toc) ". ";
+      }
+    }
+
+    &List {
+      padding-left: 10px;
+      counter-reset: toc;
+    }
+  }
+
   &__content {
     /* stylelint-disable */
 
@@ -225,10 +282,6 @@
 
     p {
       margin: 2em 0;
-
-      &:first-child {
-        margin-top: 1em;
-      }
     }
 
     /* stylelint-enable */

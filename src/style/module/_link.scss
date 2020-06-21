@@ -3,6 +3,14 @@
  * .mod-link-articles
  * ========================================================================== */
 .mod-link-articles {
+  @include min-screen(1200px) {
+    &__item {
+      flex-basis: 33.3333%;
+      min-width: 33.3333%;
+      max-width: 33.3333%;
+    }
+  }
+
   @include min-screen() {
     &__link {
       flex-grow: 1;
@@ -18,8 +26,16 @@
     &__item {
       display: flex;
       flex-basis: 50%;
+      min-width: 50%;
+      max-width: 50%;
       padding: 30px 0 0 30px;
       margin: 0;
+
+      + .mod-link-articles__item {
+        padding-top: 30px;
+        margin-top: 0;
+        border-top: 0;
+      }
     }
 
     &__inner {
@@ -31,8 +47,8 @@
 
   margin: 30px 0 80px;
 
-  &__description {
-    font-size: 14px;
+  &__title {
+    font-size: 20px;
   }
 
   &__date {
@@ -40,8 +56,30 @@
     font-size: 12px;
   }
 
-  &__title {
-    font-size: 20px;
+  &__description {
+    font-size: 14px;
+  }
+
+  &__tag {
+    margin: 1em 0 0;
+    font-size: 11px;
+
+    &Txt {
+      display: block;
+      padding: 0 7px;
+      border: 1px solid;
+      border-radius: 11px;
+    }
+
+    &Item {
+      padding: 7px 0 0 8px;
+    }
+
+    &List {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -7px 0 0 -8px;
+    }
   }
 
   &__link {
