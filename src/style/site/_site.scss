@@ -11,7 +11,7 @@
   background: #fff;
   transition: .2s background-color ease-out;
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     background: #272822;
   }
 }

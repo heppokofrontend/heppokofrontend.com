@@ -39,7 +39,7 @@
     }
   }
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #333;
     background-color: #e6db74;
   }
@@ -106,7 +106,7 @@
       position: static;
     }
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       color: #333;
       background-color: #e6db74;
     }
@@ -130,7 +130,7 @@
       cursor: pointer;
     }
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       color: #333;
       background-color: #e6db74;
     }

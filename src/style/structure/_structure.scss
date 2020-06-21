@@ -34,7 +34,7 @@
     display: flex;
   }
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #ccc;
     background-color: #2b2c25;
   }
@@ -84,7 +84,7 @@
         background: transparent;
         box-shadow: none;
 
-        [data-is-dark-mode="true"] & {
+        [data-dark-mode="true"] & {
           color: inherit;
         }
       }
@@ -106,7 +106,7 @@
           &::before {
             left: 0;
 
-            [data-is-dark-mode="true"] & {
+            [data-dark-mode="true"] & {
               border-right-color: #ccc;
             }
           }
@@ -122,7 +122,7 @@
           &::after {
             right: 0;
 
-            [data-is-dark-mode="true"] & {
+            [data-dark-mode="true"] & {
               border-left-color: #ccc;
             }
           }
@@ -198,7 +198,7 @@
     border-radius: 3px;
     transition: .2s color ease-out, .2s background-color ease-out;
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       color: #333;
       background: #ccc;
     }
@@ -214,7 +214,7 @@
     }
 
     &Link {
-      [data-is-dark-mode="true"] & {
+      [data-dark-mode="true"] & {
         color: inherit;
       }
     }
@@ -257,7 +257,7 @@
       background: #feec00;
       border-radius: 3px;
 
-      [data-is-dark-mode="true"] & {
+      [data-dark-mode="true"] & {
         color: #333;
         background: #e6db74;
       }
@@ -299,7 +299,7 @@
       background: linear-gradient(145deg, #fff, #e6e6e6);
       border-radius: 8px;
 
-      [data-is-dark-mode="true"] & {
+      [data-dark-mode="true"] & {
         color: #333;
       }
     }

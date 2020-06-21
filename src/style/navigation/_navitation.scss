@@ -126,7 +126,7 @@
       image-rendering: pixelated;
     }
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       color: #ccc;
     }
   }
@@ -150,7 +150,7 @@
       transition: .3s height ease-out, 0s visibility .3s ease-out, .2s background-color ease-out;
     }
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       background-color: #272822;
     }
 
@@ -189,7 +189,7 @@
     }
   }
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #333;
     background-color: #e6db74;
   }
@@ -264,7 +264,7 @@
       border-top-color: #fff;
       transition: .2s border-top-color ease-out;
 
-      [data-is-dark-mode="true"] & {
+      [data-dark-mode="true"] & {
         border-top-color: #eee;
       }
     }
@@ -286,7 +286,7 @@
       }
     }
 
-    [data-is-dark-mode="true"] & {
+    [data-dark-mode="true"] & {
       background-color: #eee;
     }
   }

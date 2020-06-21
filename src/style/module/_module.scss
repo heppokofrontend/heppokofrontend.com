@@ -5,7 +5,7 @@
     color: #c10000;
   }
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     strong {
       color: #ff447f;
     }

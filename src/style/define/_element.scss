@@ -37,7 +37,7 @@ body {
   background: #feec00;
   transition: .2s background-color ease-out, .2s color ease-out;
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #ccc;
     background-color: #e6db74;
   }
@@ -55,7 +55,7 @@ a {
   color: #007dbc;
   transition: .2s color ease-out;
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #5393ca;
   }
 }

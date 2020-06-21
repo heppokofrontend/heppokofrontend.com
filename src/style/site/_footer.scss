@@ -44,7 +44,7 @@
     @extend %str-inner;
   }
 
-  [data-is-dark-mode="true"] & {
+  [data-dark-mode="true"] & {
     color: #333;
     background-color: #e6db74;
   }

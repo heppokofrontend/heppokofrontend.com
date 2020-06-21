@@ -23,7 +23,7 @@ export default class HEPPOKO_FRONTEND {
         })();
         const onchange = function (e: Event) {
             savedata.checked = (e.target as HTMLInputElement).checked;
-            html.dataset.isDarkMode = savedata.checked;
+            html.dataset.darkMode = savedata.checked;
 
             try {
                 localStorage.setItem(
@@ -33,7 +33,7 @@ export default class HEPPOKO_FRONTEND {
             } catch {}
         };
 
-        html.dataset.isDarkMode = savedata.checked;
+        html.dataset.darkMode = savedata.checked;
 
         if (target) {
             target.addEventListener(`change`, onchange);
